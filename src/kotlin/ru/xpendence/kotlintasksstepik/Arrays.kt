@@ -29,3 +29,13 @@ fun deleteCopies(inputList: List<String>) : List<String> = inputList.distinct()
 fun main() {
     println(deleteCopies(readLine()!!.split(" ")))
 }
+
+val month = "(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
+
+//Решим данную задачу, Вы научитесь использовать строки и регулярные выражения. Синтаксис для регулряных выражений
+//в Kotlin достаточно удобен. Например, такое выражение:
+//fun getPattern() = """\d{2}\.\d{2}\.\d{4}"""
+//соответствует любой дате в формате 13.06.1992 (DD.DD.DDDD, где D - цифра).
+//Переделайте, пожалуйста, это выражение так, чтобы оно соответствовало любой дате в формате
+//13 JUN 1992 (DD MNH DDDD, число месяц год). Используйте переменную month .
+fun getPattern(): String = """\d{2} $month \d{4}"""
