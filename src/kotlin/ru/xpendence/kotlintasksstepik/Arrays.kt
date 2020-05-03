@@ -18,3 +18,14 @@ fun countAverageAndMedian(args: Array<String>) {
     println(array.average())
     array.sorted().let { (it[it.size / 2] + it[(it.size - 1) / 2]) / 2 }.let { println(it) }
 }
+
+//Представьте, что Вы - разработчик образовательной системы.
+//Вам надо написать функцию для удаления повторных регистраций от пользователей с одинаковыми именами.
+//Список пользователей подаётся на вход программы в виде списка строк.
+//Необходимо разработать программу для поиска повторов в таком списке и их удаления.
+//На выход ваша функция должна выдавать список строк без повторов.
+fun deleteCopies(inputList: List<String>) : List<String> = inputList.distinct()
+
+fun main() {
+    println(deleteCopies(readLine()!!.split(" ")))
+}
