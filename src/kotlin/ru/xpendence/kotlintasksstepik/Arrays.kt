@@ -27,7 +27,7 @@ fun countAverageAndMedian(args: Array<String>) {
 fun deleteCopies(inputList: List<String>) : List<String> = inputList.distinct()
 
 fun main() {
-    println(deleteCopies(readLine()!!.split(" ")))
+
 }
 
 val month = "(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
@@ -39,3 +39,27 @@ val month = "(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
 //Переделайте, пожалуйста, это выражение так, чтобы оно соответствовало любой дате в формате
 //13 JUN 1992 (DD MNH DDDD, число месяц год). Используйте переменную month .
 fun getPattern(): String = """\d{2} $month \d{4}"""
+
+//Продолжаем готовить функции для образовательной системы.
+//Теперь вам нужно разработать функцию для распределения пользователей по разделам классного журнала.
+//На вход функции подаётся список фамилий учеников (могут быть на русском, английском языках).
+//Программа должна возвращать список, каждый элемент которого содержит фамилии учеников, начинающиеся с одной и той же буквы. Элементы списка должны быть упорядочены в алфавитном порядке, как и фамилии, содержащиеся в них.
+//Такая функция будет очень полезна для образовательной системы.
+//Sample Input:
+//Smith Jones Bambury Patel Brown Singh Williams Taylor Wilson Davies Evans Scott
+//Sample Output:
+//Bambury Brown
+//Davies
+//Evans
+//Jones
+//Patel
+//Scott Singh Smith
+//Taylor
+//Williams Wilson
+
+//fun main() {
+//    sortLists(readLine()!!.split(" ")).map { it.joinToString(separator = " ", postfix = "", prefix = "") }.forEach { println(it) }
+//}
+
+fun sortLists(inputList: List<String>) : MutableList<MutableList<String>>
+        = inputList.groupBy { it.substring(0, 1) }.toSortedMap().values.map { it.sorted().toMutableList() }.toMutableList()
