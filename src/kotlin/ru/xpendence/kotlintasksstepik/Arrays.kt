@@ -64,10 +64,33 @@ fun getPattern(): String = """\d{2} $month \d{4}"""
 fun sortLists(inputList: List<String>) : MutableList<MutableList<String>>
         = inputList.groupBy { it.substring(0, 1) }.toSortedMap().values.map { it.sorted().toMutableList() }.toMutableList()
 
+//Следующая задача в образовательной системе. На подпись руководителю часто приходят документы по тем или иным студентам:
+//перевод с одной программы на другую, оплата обучения, отчислении и зачисление. Руководителю трудно проверять документ
+//вручную, отыскивая требующуюся информацию.
+//Необходимо разработать функцию для поиска в текстовом документе.
+//На вход программа получается документ, представленный строкой, а также строку для поиска.
+//На выход программа выдаёт все вхождения строки для поиска в документ (индексы начального символа вхождения по возрастанию)
+//Заметим, что предполагается, что вхождения не могут пресекаться (т.е. в случае поиска строки "абракадабра" в документе
+//"абракадабрабракадабра" будет обозначено только одно вхождение, первое слева).
+//(нумерация с нуля)
+//Sample Input:
+//абракадабрабракадабра абракадабра
+//Sample Output:
+//0
 fun findSubstrings(text: String, substring: String) : MutableList<Int> {
-    while (text.contains(substring)) {
-
+    val list = mutableListOf<Int>()
+    var count = 0
+    for (i in text.indices) {
+        if (i >= count) {
+            if (text[i] == substring[0]) {
+                if ((i + substring.length <= text.length) && text.substring(i, i + substring.length) == substring) {
+                    list.add(i)
+                    count = i + substring.length
+                }
+            }
+        }
     }
+    return list
 }
 
 //Необходимо разработать программу, которая проверяет, может ли одно предложение быть образовано из другого как анаграмма.
