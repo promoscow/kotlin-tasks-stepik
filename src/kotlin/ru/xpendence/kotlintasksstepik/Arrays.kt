@@ -27,7 +27,8 @@ fun countAverageAndMedian(args: Array<String>) {
 fun deleteCopies(inputList: List<String>) : List<String> = inputList.distinct()
 
 fun main() {
-    println(isAnagram(readLine()!!, readLine()!!))
+//    println(isAnagram(readLine()!!, readLine()!!))
+    println(findSubstrings(readLine()!!, readLine()!!))
 }
 
 val month = "(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
@@ -63,8 +64,11 @@ fun getPattern(): String = """\d{2} $month \d{4}"""
 fun sortLists(inputList: List<String>) : MutableList<MutableList<String>>
         = inputList.groupBy { it.substring(0, 1) }.toSortedMap().values.map { it.sorted().toMutableList() }.toMutableList()
 
-//fun findSubstrings(text: String, substring: String) : MutableList<Int> {
-//}
+fun findSubstrings(text: String, substring: String) : MutableList<Int> {
+    while (text.contains(substring)) {
+
+    }
+}
 
 //Необходимо разработать программу, которая проверяет, может ли одно предложение быть образовано из другого как анаграмма.
 //Пример:  "rail safety" <-> "fairy tales"
@@ -77,3 +81,9 @@ fun isAnagram(s1: String, s2: String) : Boolean {
     }
     return result.trim().isEmpty()
 }
+
+//fun permutationLexicographically() {
+//    val numbers = "0 1 2 3 4 5 6 7 8 9".split(" ").map { it.toInt() }
+//
+//    println()
+//}
