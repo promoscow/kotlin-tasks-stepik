@@ -7,7 +7,9 @@ package ru.xpendence.kotlintasksstepik
  * @author Вячеслав Чернышов
  */
 
-fun main(args: Array<String>) {
+//Необходимо разработать программу, получающую по целому число минут приблизительное значение в часах и днях.
+//30 минут округляется до часа наверх, 24 часа это 1 день.
+fun minutesToHoursAndDays() {
     val input = readLine()!!.toInt()
     var hours = input.div(60)
     if (input % 60 >= 30) {
