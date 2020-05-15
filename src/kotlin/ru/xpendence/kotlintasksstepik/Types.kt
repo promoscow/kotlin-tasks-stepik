@@ -20,4 +20,3 @@ fun minutesToHoursAndDays() {
     println("days: $days")
     println("hours: $hours")
 }
-
